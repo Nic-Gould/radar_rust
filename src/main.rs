@@ -46,12 +46,12 @@ fn main() {
     
     
     }
-    impl Chirp{
+    impl Chirp{                                     //To OOP, or not to OOP, that is the question. Maybe I'll just dump it all into the outer scope and then group it rather than trying to force seperation based on arbitraty structs. 
         fn new(key:u8)->Chirp{
             Chirp{
                 
                 pulse: bitsfrom(key),
-                match: !pulse,
+                elsup: pulse.reverse_bits,
             }
         }
     }
@@ -89,7 +89,7 @@ fn main() {
     fn match_filter(){					// Just a 1d convulution algorithm.
         for j in 0..sample.len(){
             for i in 0..chirp.length{
-                sample[j]+=sample[j+i]*match[i];
+                sample[j]+=sample[j+i]*eslup[i];
             }
         }
     }
